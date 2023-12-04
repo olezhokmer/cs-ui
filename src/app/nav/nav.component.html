@@ -1,0 +1,28 @@
+<nav>
+  <mat-toolbar color="primary">
+    <div>
+      <button mat-button routerLink="/">
+        Dotnet Project
+      </button>
+      <button mat-button *ngIf="profile" routerLink="/">
+        <mat-icon>home</mat-icon> Home
+      </button>
+    </div>
+    <div class="spacer"></div>
+    <div>
+      <button *ngIf="!profile" mat-button routerLink="/login">
+        <mat-icon>login</mat-icon> Login
+      </button>
+      <button *ngIf="!profile" mat-button routerLink="/sign-up">
+        <mat-icon>login</mat-icon> Sign Up
+      </button>
+      <button *ngIf="profile" mat-button [matMenuTriggerFor]="menu">{{ profile.username }} <mat-icon>account_circle</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/">My Profile</button>
+        <button mat-menu-item routerLink="/friends">Friends</button>
+        <button mat-menu-item routerLink="/friendship-requests">Friendship requests</button>
+        <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon> Log out</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+</nav>

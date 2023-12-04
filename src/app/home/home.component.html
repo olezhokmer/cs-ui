@@ -1,0 +1,23 @@
+<div *ngIf="profile">
+    <mat-card>
+        <mat-card-content>
+            <h1>Your profile</h1>
+            <div>User id: {{ profile.userId }}</div>
+            <div>Username: {{ profile.username }}</div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-list *ngIf="possibleFriends">
+        <h1>Possible friends</h1>
+        <mat-list-item *ngFor="let user of possibleFriends">
+            {{ user.username }}
+          <button mat-button color="primary" (click)="sendFriendshipRequest(user.userId)">Add to friends</button>
+        </mat-list-item>
+      </mat-list>
+</div>
+
+<div class="container"  *ngIf="!profile">
+    <div class="center-text">
+      <h1>Please log in to your account before using the app.</h1>
+    </div>
+  </div>

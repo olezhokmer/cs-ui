@@ -1,0 +1,9 @@
+<mat-list *ngIf="friends">
+    <h1>Friends</h1>
+    <mat-list-item *ngFor="let user of friends">
+        {{ user.username }}
+      <button mat-button color="primary" [routerLink]="['/dialog', user.userId]">Send message</button>
+    </mat-list-item>
+
+    <div *ngIf="!friends.length"> Empty list</div>
+  </mat-list>
